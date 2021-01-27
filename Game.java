@@ -17,7 +17,7 @@ public class Game {
 	public void run() {
 		String name;
 
-		System.out.println("Welcome to "'The Puppy of Wall St.'"\n what is your name?");
+		System.out.println("Welcome to 'The Puppy of Wall St'\nwhat is your name?");
 		name = keyboard.nextLine();
 		player = new Player(name, locations.get(0));
 		System.out.println("Hello " + name
