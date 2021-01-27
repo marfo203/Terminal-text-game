@@ -4,16 +4,16 @@ public class Location {
 
 	private String name;
 	private String description;
-	private ArrayList<Location> locations = new ArrayList<Location>();
+	private ArrayList<Location> neighbors = new ArrayList<Location>();
 
 	public Location(String name, String longDesc, String shortDesc) {
 	}
 
-	public void setLocation(Location WallSt, Location b, Location c, Location d) {
-		locations.add(getName(), getDescription()  );
-		locations.add(b);
-		locations.add(c);
-		locations.add(d);
+	public void setLocation(Location a, Location b, Location c, Location d) {
+		neighbors.add(a);
+		neighbors.add(b);
+		neighbors.add(c);
+		neighbors.add(d);
 	}
 
 	public String getName() {

@@ -11,17 +11,15 @@ public class Game {
 	public Game() {
 		keyboard = new Scanner(System.in);
 		locations = new ArrayList<>();
-		locations.add(new Location("Starting location", longDesc, shortDesc));
+		locations.add(new Location("Home", longDesc, shortDesc));
+		locations.add(new Location("WallSt", "Wall steet. The pinnacel of human intelect and  greed. Your second home. Billions of dollars pass through these buildings every day. Every second.\n Your goal "
+				+ getName() + " is to maximize your profits and become the yougest Puppy."));
 	}
 
 	public void run() {
 		String name;
 
-<<<<<<< HEAD
 		System.out.println("Welcome to 'The Puppy of Wall St'\nwhat is your name?");
-=======
-		System.out.println("Welcome to The Puppy of Wall St.\n what is your name?");
->>>>>>> 6ba83385c42592522b83b9f317a4914f569fa03c
 		name = keyboard.nextLine();
 		player = new Player(name, locations.get(0));
 		System.out.println("Hello " + name
