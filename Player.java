@@ -2,6 +2,7 @@
 public class Player {
 
 	private String name;
+	private Location location;
 
 	public Player(String name, Location location) {
 	}
@@ -9,17 +10,22 @@ public class Player {
 	public void doCommand(String command) {
 
 	}
+	public void setLocation(Location location) {
+		this.location = location;
+	}
+		
 
 	public Location getLocation() {
-		return null; // Här måste returneras något.
+		return location; // Här måste returneras något.
 	}
-
-	public String getName() {
-		return name;
-	}
-
 	public void setName(String name) {
 		this.name = name;
 	}
+
+	public String getName() {
+		return name; 
+	}
+
+	
 
 }
