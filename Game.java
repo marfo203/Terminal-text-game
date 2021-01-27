@@ -11,7 +11,7 @@ public class Game {
 
 	public Game() {
 	String name;
-	String Jake;
+	
 
 		keyboard = new Scanner(System.in);
 		System.out.println("Starting game... \n What is your name?");
