@@ -9,9 +9,9 @@ public class Player {
 	public void doCommand(String command) {
 
 	}
-	
-	public Location getLocation() { 
-		return null;			// Här måste returneras något.
+
+	public Location getLocation() {
+		return null; // Här måste returneras något.
 	}
 
 	public String getName() {
