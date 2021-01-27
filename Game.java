@@ -17,11 +17,11 @@ public class Game {
 	public void run() {
 		String name;
 
-		System.out.println("Welcome to "'The Puppy of Wall St.'"\n what is your name?");
+		System.out.println("Welcome to The Puppy of Wall St.\n what is your name?");
 		name = keyboard.nextLine();
 		player = new Player(name, locations.get(0));
 		System.out.println("Hello " + name
-				+ ", welcome to this magical world of wonder! You can move around by typing north/south/west/east. You will have to learn more commands as you play the game! (Hint: there is a command \"help\").");
+				+ ", welcome to the high pace world of the stock market! You can move around by typing north/south/west/east. You will have to learn more commands as you play the game! (Hint: there is a command \"help\").");
 
 		while (true) {
 			String command;
@@ -31,5 +31,6 @@ public class Game {
 			command = keyboard.nextLine();
 			player.doCommand(command);
 		}
+
 	}
 }

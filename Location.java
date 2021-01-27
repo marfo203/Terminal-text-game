@@ -9,8 +9,8 @@ public class Location {
 	public Location(String name, String longDesc, String shortDesc) {
 	}
 
-	public void setLocation(Location a, Location b, Location c, Location d) {
-		locations.add(a);
+	public void setLocation(Location WallSt, Location b, Location c, Location d) {
+		locations.add(getName(), getDescription()  );
 		locations.add(b);
 		locations.add(c);
 		locations.add(d);
@@ -33,7 +33,7 @@ public class Location {
 	}
 
 	public void describeYourself() {
-		return;
+		System.out.println();
 	}
 
 }
