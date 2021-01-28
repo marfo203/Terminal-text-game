@@ -4,9 +4,14 @@ public class Location {
 
 	private String name;
 	private String description;
+	private String longDesc;
+	private String shortDesc;
 	private ArrayList<Location> neighbors = new ArrayList<Location>();
 
 	public Location(String name, String longDesc, String shortDesc) {
+		this.name = name;
+		this.longDesc = longDesc;
+		this.shortDesc = shortDesc;
 	}
 
 	public void setLocation(Location a, Location b, Location c, Location d) {
@@ -28,12 +33,8 @@ public class Location {
 		return description;
 	}
 
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
 	public void describeYourself() {
-		System.out.println();
+		System.out.println(longDesc);
 	}
 
 }

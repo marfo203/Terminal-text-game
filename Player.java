@@ -6,18 +6,15 @@ public class Player {
 
 	public Player(String name, Location location) {
 		this.name = name;
+		this.location = location;
 	}
 
 	public void doCommand(String command) {
 
 	}
 
-	public void setLocation(Location location) {
-		this.location = location;
-	}
-
-	public Location getLocation() {
-		return location; // Här måste returneras något.
+	public void getLocation() {
+		location.describeYourself(); 
 	}
 
 	public String getName() {
