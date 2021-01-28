@@ -5,7 +5,7 @@ public class Home extends Location{
 		super(name, longDesc, shortDesc);
 	}
 		@Override
-		public void describeYourself() {
-			System.out.println("Majs");
+		public String describeYourself() {
+			return "Home";
 		}
 }

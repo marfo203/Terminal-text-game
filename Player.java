@@ -1,4 +1,5 @@
 
+
 public class Player {
 
 	private String name;
@@ -10,15 +11,20 @@ public class Player {
 	}
 
 	public void doCommand(String command) {
+		
 
 	}
 
-	public void getLocation() {
-		location.describeYourself(); 
+	public String getLocation() {
+		return location.describeYourself(); 
 	}
 
 	public String getName() {
 		return name;
+	}
+	public void describeYourself() {
+	
+		
 	}
 
 }

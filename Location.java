@@ -1,24 +1,32 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Location {
 
 	private String name;
-	private String description;
+	//private String description;
 	private String longDesc;
 	private String shortDesc;
+	private HashMap<String, Location> paths = new HashMap<String, Location>();
 	private ArrayList<Location> neighbors = new ArrayList<Location>();
+	
 
+	
 	public Location(String name, String longDesc, String shortDesc) {
 		this.name = name;
 		this.longDesc = longDesc;
 		this.shortDesc = shortDesc;
 	}
+	
+	
+	
 
-	public void setLocation(Location a, Location b, Location c, Location d) {
-		neighbors.add(a);
-		neighbors.add(b);
-		neighbors.add(c);
-		neighbors.add(d);
+	public void setNeighbor(Location a, Location b, Location c, Location d) {
+		//Måste ha någon metod som vet vilka locations som gränsar till varandra
+		paths.put("north", a);
+		paths.put("south", b);
+	    paths.put("east", c);
+		paths.put("west", d);
 	}
 
 	public String getName() {
@@ -30,11 +38,11 @@ public class Location {
 	}
 
 	public String getDescription() {
-		return description;
+		return shortDesc;
 	}
 
-	public void describeYourself() {
-		System.out.println(longDesc);
+	public String describeYourself() {
+		return longDesc;
 	}
 
 }
