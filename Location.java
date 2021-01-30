@@ -33,7 +33,7 @@ public class Location extends Game {
 		//Måste ha någon metod som vet vilka locations som gränsar till varandra
 		//Home ska gränsa till wall street. Tänker att vi kan göra som när vi tilldelade en leksak till ett djur? Fast med en ny location bara
 		
-		paths.put("north", afelix);
+		paths.put("north", a);
 		paths.put("south", b);
 	    paths.put("east", c);
 		paths.put("west", d);
