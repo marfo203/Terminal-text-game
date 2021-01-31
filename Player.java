@@ -14,34 +14,53 @@ public class Player {
 		this.influ = influ;
 	}
 
-	public void doCommand(String command) {
-		
+	public void doCommand(String cmd) {
+		if (cmd == "stats" || cmd == "Stats") {
+			System.out.println(describeYourself());
 		}
-	
+		this.location = this.location.moveTo(cmd);
+		
+		if (this.location == null) {
+			System.out.println("Nothing to see here..");
+		}
+
+	}
+
 	public int getStonks() {
 		return stonks;
 	}
+
 	public int getInfluence() {
 		return influ;
 	}
-	
+
 	public void setLocation(int loc) {
-		
-		
+
 	}
 
 	public String getLocation() {
-		return location.describeYourself(); 
+		if (this.location != null) {
+			return location.describeYourself();
+		} else {
+			return "Try another path!";
+		}
 	}
 
 	public String getName() {
 		return name;
 	}
-	public void describeYourself() {
-		System.out.println("Right now your Stonks are at "+(getStonks())+"%");
-		System.out.println("Your Influence is at "+ (getInfluence()));
-	
+
+	public String describeYourself() {
+		return "Right now your Stonks are at " + (getStonks()) + "%. And your Influence is at " + getInfluence()+"." ;
 		
+		
+
 	}
+
+//	public void getPaths() {
+//	
+//		System.out.println("There is a path leading");
+//		
+//	}
 
 }

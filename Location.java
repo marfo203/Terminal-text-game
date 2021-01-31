@@ -7,7 +7,7 @@ public class Location extends Game {
 	private String longDesc;
 	private String shortDesc;
 	private Location north, south, east, west; 
-	private HashMap<String, Location> paths = new HashMap<String, Location>(); //HashMap med paths så att "North" förknippas med wallstreet tex.
+	private static HashMap<String, Location> paths = new HashMap<String, Location>(); //HashMap med paths så att "North" förknippas med wallstreet tex.
 	private ArrayList<Location> neighbors = new ArrayList<Location>();         // Måste man kunna gå inom   rummen?
 	
 
@@ -29,7 +29,7 @@ public class Location extends Game {
 		
 	}
 	
-	public void setNeighbor(Location a, Location b, Location c, Location d) {
+	public static void setNeighbor(Location a, Location b, Location c, Location d) {
 		//Måste ha någon metod som vet vilka locations som gränsar till varandra
 		//Home ska gränsa till wall street. Tänker att vi kan göra som när vi tilldelade en leksak till ett djur? Fast med en ny location bara
 		
@@ -37,6 +37,7 @@ public class Location extends Game {
 		paths.put("south", b);
 	    paths.put("east", c);
 		paths.put("west", d);
+		
 	}
 
 	public String getName() {
@@ -54,7 +55,8 @@ public class Location extends Game {
 	public String describeYourself() {
 		return longDesc;
 	}
-	public  void moveTo(String cmd) {
+	public  Location moveTo(String cmd) {
+		return paths.get(cmd);
 		//flyttar till grannen som ligger på key cmd
 		
 		
