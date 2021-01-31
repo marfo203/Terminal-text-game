@@ -29,7 +29,7 @@ public class Outdoors extends Location {
 
 	public void setWeather() {
 		Random r = new Random();
-		int randomWeather = r.nextInt(2);
+		int randomWeather = r.nextInt(Rand.length);
 		this.weather = Rand[randomWeather];
 		System.out.println("The weather is " + this.weather + "\n");
 

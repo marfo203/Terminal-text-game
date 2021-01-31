@@ -3,6 +3,7 @@ public class Player {
 
 	private String name;
 	private Location location;
+	private Outdoors outdoors;
 	private int stonks;
 	private int influ;
 

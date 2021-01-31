@@ -19,7 +19,7 @@ public class Game {
 				"Wall Street. Home. At least it was before you moved out. Billions of dollars"
 						+ " move through these buildings every day.\nAll you need to do is to capture just a slice of it and you will be "
 						+ "set for life. You will become the Puppy of Wall Street. Meet the right people.\nBuy the right stocks ant make your Stonks-meter increse.",
-				"You are back on Wall Street. Go N/E/S/W", a, b, c, d, counter, "weather");
+				"You are back on Wall Street.", a, b, c, d, counter, weather);
 		Location BBC = new Indoors("Billionare Boys Club",
 				"Welcome to the BBC! The home of young and aspiring trustfund kids like yourself!\nCome here to relax, party or get insider information.\nEverything from... "
 						+ "Wait is that Mark \"Slobbins\" Cuban?",
@@ -27,7 +27,7 @@ public class Game {
 		Location SilVal = new Outdoors("Silicon Valley",
 				"Aaah.. Silicon Valley.. Or \" The V\" like the locals call it.\nThe home of Start Ups that change the world as we know it!\nYou can almost feel private information "
 						+ "of millions of users travel through the wind!\nAmazing place and amazing people! Where do you want to go next?",
-				"Back in The V! Where do you want to go?", a, b, c, d, counter, weather);
+				"Back in The V!", a, b, c, d, counter, weather);
 		Location NYSE = new Indoors("New York Stock Exchange", "NYSE...Longdescription...",
 				"Once again at the stock exchange. It seems like the Oracle is still in the corner!", a, b, c, d, counter);
 		Location AppleHQ = new Indoors("Apple Head Quarters", "AppleHQ...Longdescription...",
