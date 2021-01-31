@@ -11,9 +11,7 @@ public class Game {
 	public Game() {
 		// Skapar vår player, array för locations
 
-	}
-
-	public void addLocation() { // Skapar våra Locations och lägger till dem i listan
+ // Skapar våra Locations och lägger till dem i listan
 
 		Location Home = new Indoors("Home", "Du är hemma och mår bra blalalala", "Sydafrika", a, b, c, d);
 		locations.add(Home);
@@ -36,18 +34,15 @@ public class Game {
 				"Back in The V! Where do you want to go?", a, b, c, d));
 		locations.add(SilVal);
 
-	}
-
-	public void addNeighbours() {
-		locations.get(0).setNeighbor(locations.get(1), null, null, null);
-		// locations.get(1).setNeighbor(null, locations.get(2), locations.get(0), null);
-
+	
+		
+		Home.setNeighbor(WallStreet, null, null, null);
+	    WallStreet.setNeighbor(null, BBC, Home, null);
+	    BBC.setNeighbor(null, WallStreet, null, null);
 	}
 
 	public void run() {
 		// Första som händer i spelet
-		addLocation();
-		addNeighbours();
 		String name;
 		keyboard = new Scanner(System.in);
 
@@ -70,10 +65,12 @@ public class Game {
 			player.describeYourself();
 
 			System.out.println(player.getLocation());
-			player.getPaths();
+		
+			player.getPaths(locations.get(0));			
 			System.out.println("What do you do? Go!");
-			// Tillfällig
-			Location.printPaths();
+			
+		
+			
 			command = keyboard.nextLine();
 			player.doCommand(command);
 		}

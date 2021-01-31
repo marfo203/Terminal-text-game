@@ -14,13 +14,19 @@ public class Player {
 	}
 
 	public void doCommand(String cmd) {
-		if (location.checkNeighbor(cmd) != false) {
+		if (location.checkNeighbor(cmd) == true) {
 			this.location = this.location.moveTo(cmd);
+			getPaths(this.location);
+			
 		} else {
 			System.out.println("Nothing to see here...");
 
 		}
 	}
+//	public void setLocation() {
+//		this.location = 
+//	}
+	
 
 	public int getStonks() {
 		return stonks;
@@ -30,9 +36,7 @@ public class Player {
 		return influ;
 	}
 
-	public void setLocation(int loc) {
-
-	}
+	
 
 	public String getLocation() {
 		return location.describeYourself();
@@ -47,8 +51,9 @@ public class Player {
 
 	}
 
-	public void getPaths() {
-		System.out.println("There is a path leading");
+	public void getPaths(Location loc) {
+		this.location.checkPaths();
+		
 
 	}
 

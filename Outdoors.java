@@ -5,5 +5,5 @@ public class Outdoors extends Location {
 			Location west) {
 		super(name, longDesc, shortDesc, north, south, east, west);
 	}
-
+	
 }
