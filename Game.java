@@ -72,7 +72,7 @@ public class Game {
 			player.describeYourself();
 
 			System.out.println(player.getLocation());
-			//player.getPaths();
+			player.getPaths();
 			System.out.println("What do you do? Go!");
 			command = keyboard.nextLine();
 			player.doCommand(command);

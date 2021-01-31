@@ -57,10 +57,10 @@ public class Player {
 
 	}
 
-//	public void getPaths() {
-//	
-//		System.out.println("There is a path leading");
-//		
-//	}
+	public void getPaths() {
+	
+		System.out.println("There is a path leading");
+		
+	}
 
 }
