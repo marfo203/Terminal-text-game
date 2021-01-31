@@ -6,7 +6,7 @@ abstract class Location {
 	private String longDesc;
 	private String shortDesc;
 	private Location north, south, east, west;
-	private static HashMap<String, Location> paths = new HashMap<String, Location>(); // HashMap med paths så att
+	private HashMap<String, Location> paths = new HashMap<String, Location>(); // HashMap med paths så att
 																						// "North" förknippas med
 																						// wallstreet tex.
 
@@ -15,28 +15,23 @@ abstract class Location {
 		this.name = name;
 		this.longDesc = longDesc;
 		this.shortDesc = shortDesc;
-		// grannarna tas in redan i location
-		this.north = north;
-		this.south = south;
-		this.east = east;
-		this.west = west;
 
 	}
 
-	public void setNeighbor(Location a, Location b, Location c, Location d) {
+	public void setNeighbor(Location north, Location south, Location east, Location west) {
 		// Måste ha någon metod som vet vilka locations som gränsar till varandra
 		// Home ska gränsa till wall street. Tänker att vi kan göra som när vi
 		// tilldelade en leksak till ett djur? Fast med en ny location bara
 
-		paths.put("north", a);
-		paths.put("south", b);
-		paths.put("east", c);
-		paths.put("west", d);
+		this.north = north;
+		this.paths.put("north", north);
+		this.south = south;
+		this.paths.put("south", south);
+		this.east = east;
+		this.paths.put("east", east);
+		this.west = west;
+		this.paths.put("west", west);
 
-	}
-
-	public static void printPaths() {
-		System.out.println(paths);
 	}
 
 	public String getName() {
@@ -56,13 +51,13 @@ abstract class Location {
 	}
 
 	public Location moveTo(String cmd) {
-		return paths.get(cmd);
+		return this.paths.get(cmd);
 		// flyttar till grannen som ligger på key cmd
 
 	}
 
 	public boolean checkNeighbor(String cmd) {
-		if (paths.get(cmd) == null) {
+		if (this.paths.get(cmd) == null) {
 			return false;
 		} else {
 			return true;

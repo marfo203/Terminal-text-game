@@ -30,9 +30,6 @@ public class Player {
 		return influ;
 	}
 
-	public void setLocation(int loc) {
-
-	}
 
 	public String getLocation() {
 		return location.describeYourself();
