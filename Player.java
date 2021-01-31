@@ -36,7 +36,7 @@ public class Player {
 		return influ;
 	}
 
-	
+
 
 	public String getLocation() {
 		return location.describeYourself();

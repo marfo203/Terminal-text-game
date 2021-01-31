@@ -6,6 +6,7 @@ abstract class Location {
 	private String name;
 	private String longDesc;
 	private String shortDesc;
+
 	private Location north;
 	private Location south;
 	private Location east;
@@ -15,12 +16,21 @@ abstract class Location {
 	// "North" förknippas med
 	// wallstreet tex.
 
+	private Location north, south, east, west;
+	private HashMap<String, Location> paths = new HashMap<String, Location>(); // HashMap med paths så att
+																						// "North" förknippas med
+																						// wallstreet tex.
+
+
 	public Location(String name, String longDesc, String shortDesc, Location north, Location south, Location east,
 			Location west) {
 		this.name = name;
 		this.longDesc = longDesc;
 		this.shortDesc = shortDesc;
+
 		// grannarna tas in redan i location
+
+
 
 	}
 
