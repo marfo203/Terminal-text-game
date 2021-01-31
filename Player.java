@@ -1,5 +1,4 @@
 
-
 public class Player {
 
 	private String name;
@@ -15,15 +14,12 @@ public class Player {
 	}
 
 	public void doCommand(String cmd) {
-		if (cmd == "stats" || cmd == "Stats") {
-			System.out.println(describeYourself());
-		}
-		this.location = this.location.moveTo(cmd);
-		
-		if (this.location == null) {
-			System.out.println("Nothing to see here..");
-		}
+		if (location.checkNeighbor(cmd) != false) {
+			this.location = this.location.moveTo(cmd);
+		} else {
+			System.out.println("Nothing to see here...");
 
+		}
 	}
 
 	public int getStonks() {
@@ -39,11 +35,7 @@ public class Player {
 	}
 
 	public String getLocation() {
-		if (this.location != null) {
-			return location.describeYourself();
-		} else {
-			return "Try another path!";
-		}
+		return location.describeYourself();
 	}
 
 	public String getName() {
@@ -51,16 +43,13 @@ public class Player {
 	}
 
 	public String describeYourself() {
-		return "Right now your Stonks are at " + (getStonks()) + "%. And your Influence is at " + getInfluence()+"." ;
-		
-		
+		return "Right now your Stonks are at " + (getStonks()) + "%. And your Influence is at " + getInfluence() + ".";
 
 	}
 
 	public void getPaths() {
-	
 		System.out.println("There is a path leading");
-		
+
 	}
 
 }
