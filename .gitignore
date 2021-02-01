@@ -11,7 +11,11 @@
 /Indoors.class
 /Outdoors.class
 /overrides.class
+
 /Item.class
 /WearableItem.class
 /Weapon.class
 /Tool.class
+
+/Command.class
+

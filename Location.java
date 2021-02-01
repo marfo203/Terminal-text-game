@@ -28,31 +28,6 @@ abstract class Location {
 
 	}
 
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-	
-	public void locationCounter() {
-		this.counter = this.counter+1;
-	}
-
-	public String describeYourself() {
-		if (this.counter < 1) {
-		return longDesc;
-	} else {
-		return shortDesc;
-	}
-}
-
-	public Location moveTo(String cmd) {
-		return this.paths.get(cmd);
-		// flyttar till grannen som ligger på key cmd
-	}
-
 	public boolean checkNeighbor(String cmd) {
 		if (this.paths.get(cmd) == null) {
 			return false;
@@ -60,9 +35,35 @@ abstract class Location {
 			return true;
 		}
 	}
+
+	public Location moveTo(String cmd) {
+		return this.paths.get(cmd);
+		// flyttar till grannen som ligger på key cmd
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void locationCounter() {
+		this.counter = this.counter + 1;
+	}
+
+	public String describeYourself() {
+		if (this.counter < 1) {
+			return longDesc;
+		} else {
+			return shortDesc;
+		}
+	}
+
 	public void checkPaths() {
 	}
-	
+
 	public void setWeather() {
 	}
 }

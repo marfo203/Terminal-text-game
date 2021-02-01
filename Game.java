@@ -7,14 +7,13 @@ public class Game {
 	private Location a, b, c, d;
 	private int counter;
 	private ArrayList<Location> locations = new ArrayList<Location>();
-	private ArrayList<String> commands = new ArrayList<String>();
 	private String weather;
 
 	public Game() {
 		// Skapar vår player, array för locations
 		// Skapar våra Locations och lägger till dem i listan
 
-		Location Home = new Indoors("Home", "Du är hemma och mår bra blalalala", "Sydafrika", a, b, c, d, counter);
+		Location Home = new Indoors("Home", "Du är hemma och mår bra blalalala", "\nSydafrika", a, b, c, d, counter);
 		Location WallStreet = new Outdoors("Wall Street",
 				"Wall Street. Home. At least it was before you moved out. Billions of dollars"
 						+ " move through these buildings every day.\nAll you need to do is to capture just a slice of it and you will be "
@@ -29,7 +28,8 @@ public class Game {
 						+ "of millions of users travel through the wind!\nAmazing place and amazing people! Where do you want to go next?",
 				"Back in The V!", a, b, c, d, counter, weather);
 		Location NYSE = new Indoors("New York Stock Exchange", "NYSE...Longdescription...",
-				"Once again at the stock exchange. It seems like the Oracle is still in the corner!", a, b, c, d, counter);
+				"Once again at the stock exchange. It seems like the Oracle is still in the corner!", a, b, c, d,
+				counter);
 		Location AppleHQ = new Indoors("Apple Head Quarters", "AppleHQ...Longdescription...",
 				"Back at AppleHQ! Talk to Tim Cook.", a, b, c, d, counter);
 		Location AppleCryo = new Indoors("Apple Cryo Chambers", "Tim takes you down to the Cryo Chambers...",
@@ -54,9 +54,6 @@ public class Game {
 		AppleHQ.setNeighbor(AppleCryo, null, SilVal, null);
 		AppleCryo.setNeighbor(null, AppleHQ, null, null);
 		MarkTerrarium.setNeighbor(null, null, null, SilVal);
-
-		commands.add("north/south/east/west - move around");
-		commands.add("stats - See the value of your Stonks and Influence");
 
 	}
 
@@ -86,7 +83,15 @@ public class Game {
 			player.counterLocation();
 			System.out.println("\nWhat do you do? Go!");
 			command = keyboard.nextLine();
-			player.doCommand(command);
+			if (command.equalsIgnoreCase("help")) {
+				player.getHelp(command);
+			} else {
+				if (command.equalsIgnoreCase("stats")) {
+					System.out.println(player.describeYourself());
+				} else {
+					player.doCommand(command);
+				}
+			}
 		}
 	}
 }
