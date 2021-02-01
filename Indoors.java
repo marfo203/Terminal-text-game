@@ -1,9 +1,8 @@
 
 public class Indoors extends Location {
 
-	public Indoors(String name, String longDesc, String shortDesc, Location north, Location south, Location east,
-			Location west, int counter) {
-		super(name, longDesc, shortDesc, north, south, east, west, counter);
+	public Indoors(String name, String longDesc, String shortDesc, Item item) {
+		super(name, longDesc, shortDesc, item);
 	}
 
 	@Override

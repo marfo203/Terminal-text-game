@@ -5,12 +5,13 @@ public class Outdoors extends Location {
 	private String weather;
 	private String[] Rand = { "Sunny", "Rainy", "Cloudy" };
 
-	public Outdoors(String name, String longDesc, String shortDesc, Location north, Location south, Location east,
-			Location west, int counter, String weather) {
-		super(name, longDesc, shortDesc, north, south, east, west, counter);
-		this.weather = weather;
+	public Outdoors(String name, String longDesc, String shortDesc, Item item) {
+		super(name, longDesc, shortDesc, item);
 	}
-
+	
+	public String getPassage() {
+		return "path";
+	}
 	@Override
 	public void checkPaths() {
 		if (this.north != null) {

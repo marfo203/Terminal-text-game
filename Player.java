@@ -6,7 +6,7 @@ public class Player {
 	private Location location;
 	private int stonks;
 	private int influ;
-	private ArrayList<String> commands = new ArrayList<String>();
+	private ArrayList<Item> briefcase = new ArrayList<Item>();
 
 	public Player(String name, Location location, int stonks, int influ) {
 		this.name = name;
@@ -14,17 +14,23 @@ public class Player {
 		this.stonks = stonks;
 		this.influ = influ;
 
-		commands.add("north/south/east/west - move around");
-		commands.add("stats - See the value of your Stonks and Influence");
 	}
 
 	public void doCommand(String cmd) {
+		if (cmd.equalsIgnoreCase("take")) {
+			fillBriefcase();
+			System.out.println(briefcase);
+		}
 		if (location.checkNeighbor(cmd) == true) {
 			this.location = this.location.moveTo(cmd);
 
 		} else {
 			System.out.println("Nothing to see here...");
 		}
+	}
+
+	private void fillBriefcase() {
+		briefcase.add(location.getItem());
 	}
 
 	public Location getPosition() {
@@ -63,11 +69,4 @@ public class Player {
 		location.setWeather();
 	}
 
-	public void getHelp(String cmd) {
-		System.out.println("These are the commands:");
-		for (int i = 0; i < commands.size(); i++) {
-			System.out.println(commands.get(i));
-		}
-
-	}
 }

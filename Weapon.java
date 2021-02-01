@@ -1,6 +1,10 @@
 
-public class Weapon extends Item{
-	
-	private int damage;
-
-}
+//public class Weapon extends Item {
+//	
+//	public Weapon(String name, int price, double weight) {
+//		super(name, price, weight);
+//	}
+//
+//	private int damage;
+//
+//}

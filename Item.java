@@ -2,14 +2,18 @@
 public class Item {
 	private double weight;
 	private String name;
-	private int price;
+	private int influ;
 	
-	public void printYourself() {
-		
+	public Item(String name, int influ, double weight) {		
+		this.name = name;
+		this.influ = influ;
+		this.weight = weight;
+	}
+	
+	public void printYourself() {	
 	}
 	
 	public void doCommand(String cmd) {
-		
 	}
 
 }

@@ -6,14 +6,15 @@ abstract class Location {
 	private String longDesc;
 	private String shortDesc;
 	protected Location north, south, east, west;
-	private HashMap<String, Location> paths = new HashMap<String, Location>();
+	private Item item;
 	private int counter;
+	private HashMap<String, Location> paths = new HashMap<String, Location>();
 
-	public Location(String name, String longDesc, String shortDesc, Location north, Location south, Location east,
-			Location west, int counter) {
+	public Location(String name, String longDesc, String shortDesc, Item item) {
 		this.name = name;
 		this.longDesc = longDesc;
 		this.shortDesc = shortDesc;
+		this.item = item;
 	}
 
 	public void setNeighbor(Location north, Location south, Location east, Location west) {
@@ -65,5 +66,9 @@ abstract class Location {
 	}
 
 	public void setWeather() {
+	}
+	
+	public Item getItem() {
+		return this.item;
 	}
 }
