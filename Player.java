@@ -1,17 +1,21 @@
+import java.util.ArrayList;
 
 public class Player {
 
 	private String name;
 	private Location location;
-	private Outdoors outdoors;
 	private int stonks;
 	private int influ;
+	private ArrayList<String> commands = new ArrayList<String>();
 
 	public Player(String name, Location location, int stonks, int influ) {
 		this.name = name;
 		this.location = location;
 		this.stonks = stonks;
 		this.influ = influ;
+
+		commands.add("north/south/east/west - move around");
+		commands.add("stats - See the value of your Stonks and Influence");
 	}
 
 	public void doCommand(String cmd) {
@@ -36,7 +40,7 @@ public class Player {
 	}
 
 	public String getLocation() {
-		return location.describeYourself(); 
+		return location.describeYourself();
 	}
 
 	public String getName() {
@@ -54,7 +58,16 @@ public class Player {
 	public void counterLocation() {
 		location.locationCounter();
 	}
+
 	public void getWeather() {
 		location.setWeather();
+	}
+
+	public void getHelp(String cmd) {
+		System.out.println("These are the commands:");
+		for (int i = 0; i < commands.size(); i++) {
+			System.out.println(commands.get(i));
+		}
+
 	}
 }
