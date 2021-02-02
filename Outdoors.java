@@ -36,7 +36,7 @@ public class Outdoors extends Location {
 		System.out.println("The weather is " + this.weather + "\n");
 
 	}
-	
+
 	@Override
 	public void locItems() {
 		if (getItem() != null) {

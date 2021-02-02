@@ -18,35 +18,48 @@ public class Player {
 	}
 
 	public void doCommand(String cmd) {
+		if (cmd.equalsIgnoreCase("items")) {
+			System.out.println("The items in your breifcase are: ");
+			for (int i = 0; i < briefcase.size(); i++) {
+				System.out.println(briefcase.get(i).getItemName());
+			}
+		}
 		if (cmd.equalsIgnoreCase("take")) {
 			fillBriefcase();
-			System.out.println(this.item.getItemName());
+			System.out.println("You took: " + this.item.getItemName());
 		}
 		if (cmd.equalsIgnoreCase("look")) {
 			this.location.locItems();
 		}
-		if (location.checkNeighbor(cmd) == true) {
-			this.location = this.location.moveTo(cmd);
-
-		} else {
-			System.out.println("Nothing to see here...");
+		if (cmd.equalsIgnoreCase("north") || cmd.equalsIgnoreCase("south") || cmd.equalsIgnoreCase("east")
+				|| cmd.equalsIgnoreCase("west")) {
+			if (location.checkNeighbor(cmd) == true) {
+				this.location = this.location.moveTo(cmd);
+			} else {
+				System.out.println("Nothing to see here...");
+			}
 		}
 	}
 
 	private void fillBriefcase() {
-		if(location.getItem() != null) {
-				briefcase.add(location.getItem());
-				this.item = location.getItem();
-				location.itemTaken();
-				
+		if (location.getItem() != null) {
+			briefcase.add(location.getItem());
+			this.item = location.getItem();
+			addInfluence();
+			location.itemTaken();
+
 		} else {
 			System.out.println("No item to take");
 		}
-		
+
 	}
 
 	public Location getPosition() {
 		return this.location;
+	}
+
+	public void locItems() {
+		this.location.locItems();
 	}
 
 	public int getStonks() {
@@ -55,6 +68,10 @@ public class Player {
 
 	public int getInfluence() {
 		return influ;
+	}
+
+	public void addInfluence() {
+		this.influ = this.influ + this.item.addInflu();
 	}
 
 	public String getLocation() {

@@ -8,6 +8,7 @@ abstract class Location {
 	protected Location north, south, east, west;
 	private Item item;
 	private int counter;
+	@SuppressWarnings("unused")
 	private boolean taken = false;
 	private HashMap<String, Location> paths = new HashMap<String, Location>();
 
@@ -74,13 +75,9 @@ abstract class Location {
 		if (this.taken = false) {
 			this.taken = true;
 			return this.item;
-			}else {
-				return this.item;
-			}
-		
-		
-		
-		
+		} else {
+			return this.item;
+		}
 
 	}
 
@@ -88,15 +85,8 @@ abstract class Location {
 		if (this.taken = true) {
 			this.item = null;
 		}
-		
 	}
 
 	public void locItems() {
-		if (this.item != null && this.taken != true) {
-			System.out.println("There is an item in this room: " + this.item.getItemName());
-		} else {
-			System.out.println("There are no items here.");
-			this.item = null;
-		}
 	}
 }
