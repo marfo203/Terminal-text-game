@@ -73,9 +73,22 @@ abstract class Location {
 
 		if (this.taken = false) {
 			this.taken = true;
-		}
-		return this.item;
+			return this.item;
+			}else {
+				return this.item;
+			}
+		
+		
+		
+		
 
+	}
+
+	public void itemTaken() {
+		if (this.taken = true) {
+			this.item = null;
+		}
+		
 	}
 
 	public void locItems() {

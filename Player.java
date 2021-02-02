@@ -6,6 +6,7 @@ public class Player {
 	private Location location;
 	private int stonks;
 	private int influ;
+	public Item item;
 	private ArrayList<Item> briefcase = new ArrayList<Item>();
 
 	public Player(String name, Location location, int stonks, int influ) {
@@ -19,7 +20,7 @@ public class Player {
 	public void doCommand(String cmd) {
 		if (cmd.equalsIgnoreCase("take")) {
 			fillBriefcase();
-			System.out.println(briefcase);
+			System.out.println(this.item.getItemName());
 		}
 		if (cmd.equalsIgnoreCase("look")) {
 			this.location.locItems();
@@ -35,6 +36,11 @@ public class Player {
 	private void fillBriefcase() {
 		if(location.getItem() != null) {
 				briefcase.add(location.getItem());
+				this.item = location.getItem();
+				location.itemTaken();
+				
+		} else {
+			System.out.println("No item to take");
 		}
 		
 	}
