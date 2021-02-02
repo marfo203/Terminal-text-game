@@ -8,10 +8,11 @@ public class Outdoors extends Location {
 	public Outdoors(String name, String longDesc, String shortDesc, Item item) {
 		super(name, longDesc, shortDesc, item);
 	}
-	
+
 	public String getPassage() {
 		return "path";
 	}
+
 	@Override
 	public void checkPaths() {
 		if (this.north != null) {
@@ -34,5 +35,14 @@ public class Outdoors extends Location {
 		this.weather = Rand[randomWeather];
 		System.out.println("The weather is " + this.weather + "\n");
 
+	}
+	
+	@Override
+	public void locItems() {
+		if (getItem() != null) {
+			System.out.println("There is an item in this area: " + getItem().getItemName());
+		} else {
+			System.out.println("There are no items here.");
+		}
 	}
 }

@@ -20,4 +20,14 @@ public class Indoors extends Location {
 			System.out.println("There is a door leading west.");
 		}
 	}
+
+	@Override
+	public void locItems() {
+		if (getItem() != null) {
+			System.out.println("There is an item in this room: " + getItem().getItemName());
+		} else {
+			System.out.println("There are no items here.");
+		}
+	}
+
 }

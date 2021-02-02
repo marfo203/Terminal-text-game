@@ -21,6 +21,9 @@ public class Player {
 			fillBriefcase();
 			System.out.println(briefcase);
 		}
+		if (cmd.equalsIgnoreCase("look")) {
+			this.location.locItems();
+		}
 		if (location.checkNeighbor(cmd) == true) {
 			this.location = this.location.moveTo(cmd);
 
@@ -30,7 +33,10 @@ public class Player {
 	}
 
 	private void fillBriefcase() {
-		briefcase.add(location.getItem());
+		if(location.getItem() != null) {
+				briefcase.add(location.getItem());
+		}
+		
 	}
 
 	public Location getPosition() {

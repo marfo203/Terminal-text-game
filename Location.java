@@ -8,6 +8,7 @@ abstract class Location {
 	protected Location north, south, east, west;
 	private Item item;
 	private int counter;
+	private boolean taken = false;
 	private HashMap<String, Location> paths = new HashMap<String, Location>();
 
 	public Location(String name, String longDesc, String shortDesc, Item item) {
@@ -67,8 +68,22 @@ abstract class Location {
 
 	public void setWeather() {
 	}
-	
+
 	public Item getItem() {
+
+		if (this.taken = false) {
+			this.taken = true;
+		}
 		return this.item;
+
+	}
+
+	public void locItems() {
+		if (this.item != null && this.taken != true) {
+			System.out.println("There is an item in this room: " + this.item.getItemName());
+		} else {
+			System.out.println("There are no items here.");
+			this.item = null;
+		}
 	}
 }

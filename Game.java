@@ -7,19 +7,18 @@ public class Game {
 	private Item item;
 	private ArrayList<Location> locations = new ArrayList<Location>();
 	private ArrayList<String> commands = new ArrayList<String>();
-	
 
 	public Game() {
 		// Skapar vår player, array för locations
 		// Skapar våra Locations och lägger till dem i listan
 		// Skapar våra items
-		
-		Item scrubbDaddy = new Tool("Salty Hamburger", 20, 0.2); 
+
+		Item scrubbDaddy = new Tool("Salty Hamburger", 20, 0.2);
 		Item vest = new WearableItem("Patagonia Vest", 50, 0.7);
 		Item turtleneck = new WearableItem("Steve Jobs Turtleneck", 200, 0.9);
 		Item passWord = new Tool("Elon Musk's Twitter Password", 500, 0);
 		Item phone = new Tool("The Iphone", 100, 0.4);
-		
+
 //		items.add(scrubbDaddy);
 //		items.add(vest);
 //		items.add(turtleneck);
@@ -44,7 +43,7 @@ public class Game {
 				"Back at AppleHQ! Talk to Tim Cook.", phone);
 		Location appleCryo = new Indoors("Apple Cryo Chambers", "Tim takes you down to the Cryo Chambers...",
 				"Down at the Cryo Chambers", turtleneck);
-		
+
 		locations.add(home);
 		locations.add(wallStreet);
 		locations.add(bbc);
@@ -57,12 +56,12 @@ public class Game {
 		bbc.setNeighbor(null, null, wallStreet, null);
 		silVal.setNeighbor(null, wallStreet, null, appleHQ);
 		appleHQ.setNeighbor(appleCryo, null, silVal, null);
-		appleCryo.setNeighbor(null, appleHQ, null, null);	
-		
+		appleCryo.setNeighbor(null, appleHQ, null, null);
+
 		commands.add("north/south/east/west - move around");
-		commands.add("stats - See the value of your Stonks and Influence");	
+		commands.add("stats - See the value of your Stonks and Influence");
 	}
-	
+
 	public void getHelp(String cmd) {
 		System.out.println("These are the commands:");
 		for (int i = 0; i < commands.size(); i++) {
