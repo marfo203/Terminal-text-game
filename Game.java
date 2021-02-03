@@ -19,13 +19,13 @@ public class Game {
 		Item phone = new Tool("The Iphone", 100, 0);
 		Item future = new Tool("Your bright future", 130, 0);
 
-		Location home = new Indoors("Home", "\nYou are at home and feeling great...Longdescription...",
-				"\nYour are back at home", scrubDaddy);
+		Location home = new Indoors("Home", "You are at home and feeling great...Longdescription...",
+				"Your are back at home", scrubDaddy);
 		Location wallStreet = new Outdoors("Wall Street",
-				"\nWall Street. Home. At least it was before you moved out. Billions of dollars"
+				"Wall Street. Home. At least it was before you moved out. Billions of dollars"
 						+ " move through these buildings every day.\nAll you need to do is to capture just a slice of it and you will be "
 						+ "set for life. You will become the Puppy of Wall Street. Meet the right people.\nBuy the right stocks ant make your Stonks-meter increse.",
-				"\nYou are back on Wall Street.", future);
+				"You are back on Wall Street.", future);
 		Location bbc = new Indoors("Billionare Boys Club",
 				"Welcome to the BBC! The home of young and aspiring trustfund kids like yourself!\nCome here to relax, party or get insider information.\nEverything from... "
 						+ "Wait is that Mark \"Slobbins\" Cuban?",
@@ -88,7 +88,7 @@ public class Game {
 			String command;
 
 			player.describeYourself();
-			System.out.println(player.getLocation());
+			System.out.println(player.getLocation() +"\n");
 			player.getWeather();
 			player.getPaths(player.getPosition());
 			player.counterLocation();

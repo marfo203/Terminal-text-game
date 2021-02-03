@@ -10,6 +10,7 @@ public class Player {
 	private Item item;
 	private ArrayList<Item> wearable = new ArrayList<Item>();
 	private ArrayList<Item> briefcase = new ArrayList<Item>();
+	//briefcase contains blablabla
 
 	public Player(String name, Location location, int stonks, int influ) {
 		this.name = name;
@@ -47,6 +48,7 @@ public class Player {
 			System.out.println("What do you want to wear?");
 			for (int i = 0; i < briefcase.size(); i++) {
 				if (briefcase.get(i) instanceof WearableItem) {
+
 				System.out.println(i+1+": "+briefcase.get(i).getItemName());
 				int command;
 				keyboard = new Scanner(System.in);
@@ -58,6 +60,9 @@ public class Player {
 				
 				}
 			
+
+				System.out.println(i+1+": "+briefcase.get(i).getItemName());}		
+
 			}
 		}
 	}
