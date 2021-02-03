@@ -1,7 +1,8 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Player {
-
+    private Scanner keyboard; 
 	private String name;
 	private Location location;
 	private int stonks;
@@ -19,6 +20,7 @@ public class Player {
 	}
 
 	public void doCommand(String cmd) {
+	
 		if (cmd.equalsIgnoreCase("items")) {
 			System.out.println("The items in your breifcase are: ");
 			for (int i = 0; i < briefcase.size(); i++) {
@@ -41,10 +43,20 @@ public class Player {
 			}
 		}
 		if (cmd.equalsIgnoreCase("wear")) {
+			
 			System.out.println("What do you want to wear?");
 			for (int i = 0; i < briefcase.size(); i++) {
 				if (briefcase.get(i) instanceof WearableItem) {
-				System.out.println(i+1+": "+briefcase.get(i).getItemName());}
+				System.out.println(i+1+": "+briefcase.get(i).getItemName());
+				int command;
+				keyboard = new Scanner(System.in);
+				command = keyboard.nextInt();
+				wearable.add(briefcase.get(command-1));
+				briefcase.remove(i);
+				System.out.println("You are now wearing "+briefcase.get(command-1).getItemName());
+				describeYourself();
+				
+				}
 			
 			}
 		}
