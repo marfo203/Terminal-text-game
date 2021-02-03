@@ -72,6 +72,7 @@ public class Player {
 
 				System.out.println(i + 1 + ": " + tools.get(i).getItemName());
 				keyboard = new Scanner(System.in);
+				this.item = tools.get(i);
 			}
 			try {
 				command = keyboard.nextInt();
