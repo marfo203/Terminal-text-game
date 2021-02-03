@@ -10,7 +10,6 @@ public class WearableItem extends Item {
 	@overrides
 	public void putOn(Player player) {
 		player.wearItem(this);
-
 	}
 
 	public String getWearName() {
