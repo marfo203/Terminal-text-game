@@ -5,7 +5,9 @@ public class Tool extends Item {
 		super(name, influ, stonks);
 	}
 
-	public void Use(Player player) {
+	@Override
+	public void useOn(Location location) {
+		System.out.println("No use for this tool here...");
 	}
 
 	public void doCommand(String cmd) {

@@ -7,7 +7,7 @@ abstract class Location {
 	private String shortDesc;
 	protected Location north, south, east, west;
 	private Item item;
-	private int counter;
+	private boolean hasBeen;
 	@SuppressWarnings("unused")
 	private boolean taken = false;
 	private HashMap<String, Location> paths = new HashMap<String, Location>();
@@ -53,11 +53,11 @@ abstract class Location {
 	}
 
 	public void locationCounter() {
-		this.counter = this.counter + 1;
+		this.hasBeen = true;
 	}
 
 	public String describeYourself() {
-		if (this.counter < 1) {
+		if (this.hasBeen == false) {
 			return longDesc;
 		} else {
 			return shortDesc;

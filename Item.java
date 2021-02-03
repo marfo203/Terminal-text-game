@@ -12,8 +12,12 @@ public class Item {
 
 	public void printYourself() {
 	}
-	public void putOn(Player player) {
-		
+	
+	public void putOn(Player player) {		
+	}
+	
+	public void useOn(Location location) {	
+		System.out.println("No use for this item here");
 	}
 
 	public void doCommand(String cmd) {

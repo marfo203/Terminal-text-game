@@ -15,7 +15,8 @@ public class WearableItem extends Item {
 	public String getWearName() {
 		return this.name;
 	}
-
+	
+	@overrides
 	public void doCommand(String cmd) {
 	}
 

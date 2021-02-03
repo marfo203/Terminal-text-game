@@ -3,26 +3,26 @@ import java.util.Scanner;
 
 public class Player {
 	int command;
-    private Scanner keyboard; 
-	private String name;
+	private Scanner keyboard;
+	private static String name;
 	private Location location;
 	private int stonks;
 	private int influ;
 	private Item item;
-	private ArrayList<Item> wearable = new ArrayList<Item>();
+	private ArrayList<Item> wearables = new ArrayList<Item>();
+	private ArrayList<Item> tools = new ArrayList<Item>();
 	private ArrayList<Item> briefcase = new ArrayList<Item>();
-	//briefcase contains blablabla
+	// briefcase contains blablabla
 
 	public Player(String name, Location location, int stonks, int influ) {
 		this.name = name;
 		this.location = location;
 		this.stonks = stonks;
 		this.influ = influ;
-
 	}
 
 	public void doCommand(String cmd) {
-	
+
 		if (cmd.equalsIgnoreCase("items")) {
 			System.out.println("The items in your breifcase are: ");
 			for (int i = 0; i < briefcase.size(); i++) {
@@ -32,6 +32,7 @@ public class Player {
 		if (cmd.equalsIgnoreCase("take")) {
 			fillBriefcase();
 			System.out.println("You took: " + this.item.getItemName());
+			System.out.println(describeYourself());
 		}
 		if (cmd.equalsIgnoreCase("look")) {
 			this.location.locItems();
@@ -45,37 +46,48 @@ public class Player {
 			}
 		}
 		if (cmd.equalsIgnoreCase("wear")) {
-			
+
 			System.out.println("What do you want to wear?");
 			for (int i = 0; i < briefcase.size(); i++) {
 				if (briefcase.get(i) instanceof WearableItem) {
 
-				System.out.println(i+1+": "+briefcase.get(i).getItemName());
-				
-				keyboard = new Scanner(System.in);
-				try {
-					command = keyboard.nextInt();
-				}catch (Exception e) {
-					System.out.println("");
-				}
-				wearable.add(briefcase.get(command-1));
-				System.out.println("You are now wearing "+briefcase.get(command-1).getItemName());
-				briefcase.remove(command-1);
-				describeYourself();
-				
-				}
-			
+					System.out.println(i + 1 + ": " + briefcase.get(i).getItemName());
 
-					
-
+					keyboard = new Scanner(System.in);
+				}
+			}
+			try {
+				command = keyboard.nextInt();
+				wearables.add(briefcase.get(command - 1));
+				System.out.println("You are now wearing " + briefcase.get(command - 1).getItemName());
+				briefcase.remove(command - 1);
+				this.influ = this.influ + this.item.addInflu();
+				System.out.println(describeYourself());
+			} catch (Exception e) {
+				System.out.println("Wrong input");
 			}
 		}
-		}
+		if (cmd.equalsIgnoreCase("use")) {
+			for (int i = 0; i < tools.size(); i++) {
 
+				System.out.println(i + 1 + ": " + tools.get(i).getItemName());
+				keyboard = new Scanner(System.in);
+			}
+			try {
+				command = keyboard.nextInt();
+				this.item.useOn(this.location);
+			} catch (Exception e) {
+				System.out.println("Wrong input");
+			}
+		}
+	}
 
 	private void fillBriefcase() {
 		if (location.getItem() != null) {
 			briefcase.add(location.getItem());
+			if (location.getItem() instanceof Tool) {
+				tools.add(location.getItem());
+			}
 			this.item = location.getItem();
 			addInfluence();
 			location.itemTaken();
@@ -85,7 +97,7 @@ public class Player {
 		}
 
 	}
-	
+
 	public void getitemName() {
 		this.item.getItemName();
 	}
@@ -107,14 +119,16 @@ public class Player {
 	}
 
 	public void addInfluence() {
-		this.influ = this.influ + this.item.addInflu();
+		if (this.item instanceof Tool) {
+			this.influ = this.influ + this.item.addInflu();
+		}
 	}
 
 	public String getLocation() {
 		return location.describeYourself();
 	}
 
-	public String getName() {
+	public static String getName() {
 		return name;
 	}
 
@@ -133,8 +147,9 @@ public class Player {
 	public void getWeather() {
 		location.setWeather();
 	}
+
 	public void wearItem(WearableItem wear) {
-		this.wearable.add(item);
+		this.wearables.add(item);
 	}
 
 }

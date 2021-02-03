@@ -4,7 +4,7 @@ public class Game {
 
 	private Scanner keyboard;
 	private Player player;
-	private ArrayList<Location> locations = new ArrayList<Location>();
+	private static ArrayList<Location> locations = new ArrayList<Location>();
 	private ArrayList<String> commands = new ArrayList<String>();
 
 	public Game() {
@@ -12,7 +12,7 @@ public class Game {
 		// Skapar våra Locations och lägger till dem i listan
 		// Skapar våra items
 
-		Item scrubDaddy = new Tool("Scrub Daddy", 20, 50);
+		Item scrubDaddy = new ScrubDaddy("Scrub Daddy", 20, 50);
 		Item vest = new WearableItem("Patagonia Vest", 50, 0);
 		Item turtleneck = new WearableItem("Steve Jobs Turtleneck", 200, 0);
 		Item passWord = new Tool("Elon Musk's Twitter Password", 500, 400);
@@ -59,6 +59,10 @@ public class Game {
 		commands.add("take - take item in current room or area");
 		commands.add("items - See the current items in your briefcase");
 		commands.add("tweet - Use your phone and Twitter Password to tweet");
+	}
+	
+	public static Location getLocation(int i) {
+		return locations.get(i);
 	}
 
 	public void getHelp(String cmd) {
