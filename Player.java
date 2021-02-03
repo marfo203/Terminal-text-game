@@ -6,7 +6,8 @@ public class Player {
 	private Location location;
 	private int stonks;
 	private int influ;
-	public Item item;
+	private Item item;
+	private ArrayList<Item> wearable = new ArrayList<Item>();
 	private ArrayList<Item> briefcase = new ArrayList<Item>();
 
 	public Player(String name, Location location, int stonks, int influ) {
@@ -39,6 +40,14 @@ public class Player {
 				System.out.println("Nothing to see here...");
 			}
 		}
+		if (cmd.equalsIgnoreCase("wear")) {
+			System.out.println("What do you want to wear?");
+			for (int i = 0; i < briefcase.size(); i++) {
+				if (briefcase.get(i) instanceof WearableItem) {
+				System.out.println(i+1+": "+briefcase.get(i).getItemName());}
+			
+			}
+		}
 	}
 
 	private void fillBriefcase() {
@@ -52,6 +61,10 @@ public class Player {
 			System.out.println("No item to take");
 		}
 
+	}
+	
+	public void getitemName() {
+		this.item.getItemName();
 	}
 
 	public Location getPosition() {
@@ -96,6 +109,9 @@ public class Player {
 
 	public void getWeather() {
 		location.setWeather();
+	}
+	public void wearItem(WearableItem wear) {
+		this.wearable.add(item);
 	}
 
 }

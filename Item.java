@@ -12,6 +12,9 @@ public class Item {
 
 	public void printYourself() {
 	}
+	public void putOn(Player player) {
+		
+	}
 
 	public void doCommand(String cmd) {
 		System.out.println("This command is invalid");
