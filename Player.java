@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Player {
+	int command;
     private Scanner keyboard; 
 	private String name;
 	private Location location;
@@ -50,22 +51,27 @@ public class Player {
 				if (briefcase.get(i) instanceof WearableItem) {
 
 				System.out.println(i+1+": "+briefcase.get(i).getItemName());
-				int command;
+				
 				keyboard = new Scanner(System.in);
-				command = keyboard.nextInt();
+				try {
+					command = keyboard.nextInt();
+				}catch (Exception e) {
+					System.out.println("");
+				}
 				wearable.add(briefcase.get(command-1));
-				briefcase.remove(i);
 				System.out.println("You are now wearing "+briefcase.get(command-1).getItemName());
+				briefcase.remove(command-1);
 				describeYourself();
 				
 				}
 			
 
-				System.out.println(i+1+": "+briefcase.get(i).getItemName());}		
+					
 
 			}
 		}
-	}
+		}
+
 
 	private void fillBriefcase() {
 		if (location.getItem() != null) {
