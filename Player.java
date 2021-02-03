@@ -50,9 +50,7 @@ public class Player {
 			System.out.println("What do you want to wear?");
 			for (int i = 0; i < briefcase.size(); i++) {
 				if (briefcase.get(i) instanceof WearableItem) {
-
 					System.out.println(i + 1 + ": " + briefcase.get(i).getItemName());
-
 					keyboard = new Scanner(System.in);
 				}
 			}
@@ -69,13 +67,13 @@ public class Player {
 		}
 		if (cmd.equalsIgnoreCase("use")) {
 			for (int i = 0; i < tools.size(); i++) {
-
 				System.out.println(i + 1 + ": " + tools.get(i).getItemName());
 				keyboard = new Scanner(System.in);
 			}
 			try {
 				command = keyboard.nextInt();
 				this.item.useOn(this.location);
+				this.item.isUsed();
 			} catch (Exception e) {
 				System.out.println("Wrong input");
 			}
@@ -121,6 +119,12 @@ public class Player {
 	public void addInfluence() {
 		if (this.item instanceof Tool) {
 			this.influ = this.influ + this.item.addInflu();
+		}
+	}
+
+	public void addStonks() {
+		if (item.isUsed() == true) {
+			stonks = stonks + item.addStonk();
 		}
 	}
 

@@ -13,7 +13,7 @@ public class ScrubDaddy extends Tool {
 			System.out.println(
 					"The Smiling Scrubbers are our most recognizable cleaning tools."
 					+ "Yes the face is cute but there’s more to our iconic shape than you may think.\n"
-					+ "Measuring over 1 ½ inches thick, Scrub Daddy and Mommy’s unique size cleans the\n"
+					+ "Measuring over 1 ½ inches thick, Scrub Daddy’s unique size cleans the\n"
 					+ "sides and depths of your containers simultaneously. The round shape is ergonomically\n"
 					+ "designed for comfortable grip and the most thorough cleaning on everything from measuring\n"
 					+ "cups to salad bowls. The eyes hold onto your fingers offering protection and a 360 degreed\n"

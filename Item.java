@@ -3,6 +3,7 @@ public class Item {
 	private int stonks;
 	private String name;
 	private int influ;
+	private boolean used = false;
 
 	public Item(String name, int influ, int stonks) {
 		this.name = name;
@@ -17,7 +18,6 @@ public class Item {
 	}
 	
 	public void useOn(Location location) {	
-		System.out.println("No use for this item here");
 	}
 
 	public void doCommand(String cmd) {
@@ -31,6 +31,15 @@ public class Item {
 
 	public int addInflu() {
 		return this.influ;
+	}
+
+	public int addStonk() {
+		return this.stonks;
+	}
+
+	public boolean isUsed() {	
+		used = true;
+		return used;
 	}
 
 }
