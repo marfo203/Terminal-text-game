@@ -15,7 +15,7 @@ public class Player {
 	// briefcase contains blablabla
 
 	public Player(String name, Location location, int stonks, int influ) {
-		this.name = name;
+		Player.name = name;
 		this.location = location;
 		this.stonks = stonks;
 		this.influ = influ;
@@ -28,15 +28,22 @@ public class Player {
 			for (int i = 0; i < briefcase.size(); i++) {
 				System.out.println(briefcase.get(i).getItemName());
 			}
+			System.out.println("");
 		}
 		if (cmd.equalsIgnoreCase("take")) {
-			fillBriefcase();
-			System.out.println("You took: " + this.item.getItemName());
-			System.out.println(describeYourself());
+			if (location.getItem() != null) {
+				fillBriefcase();
+				System.out.println("You took: " + this.item.getItemName());
+				System.out.println(describeYourself());
+			} else {
+				System.out.println("There are no items to take\n");
+			}
 		}
+
 		if (cmd.equalsIgnoreCase("look")) {
 			this.location.locItems();
 		}
+
 		if (cmd.equalsIgnoreCase("north") || cmd.equalsIgnoreCase("south") || cmd.equalsIgnoreCase("east")
 				|| cmd.equalsIgnoreCase("west")) {
 			if (location.checkNeighbor(cmd) == true) {
@@ -45,56 +52,59 @@ public class Player {
 				System.out.println("Nothing to see here...");
 			}
 		}
-		if (cmd.equalsIgnoreCase("wear")) {
 
-			System.out.println("What do you want to wear?");
-			for (int i = 0; i < briefcase.size(); i++) {
-				if (briefcase.get(i) instanceof WearableItem) {
-					System.out.println(i + 1 + ": " + briefcase.get(i).getItemName());
+		if (cmd.equalsIgnoreCase("wear")) {
+			if (wearables.size() != 0) {
+				System.out.println("What do you want to wear?");
+				for (int i = 0; i < wearables.size(); i++) {
+					System.out.println(i + 1 + ": " + wearables.get(i).getItemName());
 					keyboard = new Scanner(System.in);
 				}
-			}
-			try {
-				command = keyboard.nextInt();
-				wearables.add(briefcase.get(command - 1));
-				System.out.println("You are now wearing " + briefcase.get(command - 1).getItemName());
-				briefcase.remove(command - 1);
-				this.influ = this.influ + this.item.addInflu();
-				System.out.println(describeYourself());
-			} catch (Exception e) {
-				System.out.println("Wrong input");
-			}
-		}
-		if (cmd.equalsIgnoreCase("use")) {
-			for (int i = 0; i < tools.size(); i++) {
-				System.out.println(i + 1 + ": " + tools.get(i).getItemName());
-				keyboard = new Scanner(System.in);
-				this.item = tools.get(i);
-			}
-			try {
-				command = keyboard.nextInt();
-				this.item.useOn(this.location);
-				this.item.isUsed();
-			} catch (Exception e) {
-				System.out.println("Wrong input");
+				try {
+					command = keyboard.nextInt();
+					System.out.println("You are now wearing " + wearables.get(command - 1).getItemName());
+					wearables.remove(command - 1);
+					addInfluence();
+					System.out.println(describeYourself());
+				} catch (Exception e) {
+					System.out.println("Wrong input");
+				}
+			} else {
+				System.out.println("There is nothing in your briefcase to wear");
 			}
 		}
-	}
+
+			if (cmd.equalsIgnoreCase("use")) {
+				if (tools.size() != 0) {
+					for (int i = 0; i < tools.size(); i++) {
+						System.out.println(i + 1 + ": " + tools.get(i).getItemName());
+						keyboard = new Scanner(System.in);
+						this.item = tools.get(i);
+					}
+					try {
+						command = keyboard.nextInt();
+						this.item.useOn(this.location);
+						this.item.isUsed();
+					} catch (Exception e) {
+						System.out.println("Wrong input");
+					}
+				} else {
+					System.out.println("There is nothing in your briefcase to use");
+				}
+			}
+		}
 
 	private void fillBriefcase() {
-		if (location.getItem() != null) {
-			briefcase.add(location.getItem());
-			if (location.getItem() instanceof Tool) {
-				tools.add(location.getItem());
-			}
-			this.item = location.getItem();
+		briefcase.add(location.getItem());
+		this.item = location.getItem();
+		if (location.getItem() instanceof Tool) {
+			tools.add(location.getItem());
 			addInfluence();
-			location.itemTaken();
-
-		} else {
-			System.out.println("No item to take");
 		}
-
+		if (location.getItem() instanceof WearableItem) {
+			wearables.add(location.getItem());
+		}
+		location.itemTaken();
 	}
 
 	public void getitemName() {
@@ -118,9 +128,7 @@ public class Player {
 	}
 
 	public void addInfluence() {
-		if (this.item instanceof Tool) {
 			this.influ = this.influ + this.item.addInflu();
-		}
 	}
 
 	public void addStonks() {

@@ -1,7 +1,5 @@
 
 public class ScrubDaddy extends Tool {
-	private Location location;
-	private Game game;
 
 	public ScrubDaddy(String name, int influ, int stonks) {
 		super(name, influ, stonks);
