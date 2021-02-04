@@ -7,7 +7,7 @@ public class ScrubDaddy extends Tool {
 		super(name, influ, stonks);
 	}
 
-	public void useOn(Location location) {
+	public void useOn(Location location, Player player) {
 		if (location == Game.getLocation(2) && this.sharktank == false) {
 			System.out.println("You pitch the Scrub Daddy to Slobbins\n");
 			System.out.println("The Smiling Scrubbers are our most recognizable cleaning tools."
@@ -18,8 +18,10 @@ public class ScrubDaddy extends Tool {
 					+ "cups to salad bowls. The eyes hold onto your fingers offering protection and a 360 degreed\n"
 					+ "scrubbing surface; an especially helpful feature when dexterity is limited. And how could\n"
 					+ "we forget that contagious grin? Effortlessly clean your kitchen utensils with a quick swipe.\n");
-			System.out.println("Slobbins: Nice pitch, " + Player.getName() + "!");
+			System.out.println("Slobbins: Nice pitch, " + player.getName() + "! I will invest in your Scrub Daddy and increase your stonks!"); 
 			this.sharktank = true;
+			player.addStonks();
+			System.out.println(player.describeYourself());
 		} else {
 			System.out.println("No use for a Scrub Daddy here...");
 		}

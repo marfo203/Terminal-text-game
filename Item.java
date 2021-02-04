@@ -17,7 +17,7 @@ public class Item {
 	public void putOn(Player player) {		
 	}
 	
-	public void useOn(Location location) {	
+	public void useOn(Location location, Player player) {	
 	}
 
 	public void doCommand(String cmd) {

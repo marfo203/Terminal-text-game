@@ -7,7 +7,7 @@ abstract class Location {
 	private String shortDesc;
 	protected Location north, south, east, west;
 	private Item item;
-	private boolean hasBeen;
+	private boolean hasBeen = false;
 	@SuppressWarnings("unused")
 	private boolean taken = false;
 	private HashMap<String, Location> paths = new HashMap<String, Location>();

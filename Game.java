@@ -28,7 +28,8 @@ public class Game {
 				"You are back on Wall Street.", future);
 		Location bbc = new Indoors("Billionare Boys Club",
 				"Welcome to the BBC! The home of young and aspiring trustfund kids like yourself!\nCome here to relax, party or get insider information.\nEverything from... "
-						+ "Wait is that Mark \"Slobbins\" Cuban?",
+						+ "Wait is that Mark \"Slobbins\" Cuban?\n"
+						+ "Slobbins: 'I am really looking for my next big investment. I heard the spongemarket is on fire right now!!'",
 				"Back at the BBC! Talk to one of the Billionare boys!", vest);
 		Location silVal = new Outdoors("Silicon Valley",
 				"Aaah.. Silicon Valley.. Or \" The V\" like the locals call it.\nThe home of Start Ups that change the world as we know it!\nYou can almost feel private information "
@@ -56,9 +57,11 @@ public class Game {
 		commands.add("north/south/east/west - move around");
 		commands.add("stats - See the value of your Stonks and Influence");
 		commands.add("look - See items in current room or area");
-		commands.add("take - take item in current room or area");
 		commands.add("items - See the current items in your briefcase");
-		commands.add("tweet - Use your phone and Twitter Password to tweet");
+		commands.add("take - Take item in current room or area");
+//		commands.add("tweet - Use your phone and Twitter Password to tweet");
+		commands.add("use - Use the tools in your briefcase");
+		commands.add("wear - Wear the wearable items in your briefcase");
 	}
 	
 	public static Location getLocation(int i) {

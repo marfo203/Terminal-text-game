@@ -6,7 +6,7 @@ public class Tool extends Item {
 	}
 
 	@Override
-	public void useOn(Location location) {
+	public void useOn(Location location, Player player) {
 		System.out.println("No use for this tool here...");
 	}
 

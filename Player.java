@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class Player {
 	int command;
 	private Scanner keyboard;
-	private static String name;
+	private String name;
 	private Location location;
 	private int stonks;
 	private int influ;
@@ -15,7 +15,7 @@ public class Player {
 	// briefcase contains blablabla
 
 	public Player(String name, Location location, int stonks, int influ) {
-		Player.name = name;
+		this.name = name;
 		this.location = location;
 		this.stonks = stonks;
 		this.influ = influ;
@@ -83,7 +83,7 @@ public class Player {
 					try {		
 						command = keyboard.nextInt();
 						this.item = tools.get(command-1);
-						this.item.useOn(this.location);
+						this.item.useOn(this.location, this);
 					} catch (Exception e) {
 						System.out.println("Wrong input");
 					}
@@ -93,7 +93,7 @@ public class Player {
 			}
 		}
 
-	private void fillBriefcase() {
+	public void fillBriefcase() {
 		briefcase.add(location.getItem());
 		this.item = location.getItem();
 		if (location.getItem() instanceof Tool) {
@@ -140,12 +140,12 @@ public class Player {
 		return location.describeYourself();
 	}
 
-	public static String getName() {
+	public String getName() {
 		return name;
 	}
 
 	public String describeYourself() {
-		return "Right now your Stonks are at " + (getStonks()) + "%. And your Influence is at " + getInfluence() + ".";
+		return "Right now your Stonks are at " + (getStonks()) + "%. And your Influence is at " + getInfluence() + ".\n";
 	}
 
 	public void getPaths(Location loc) {
