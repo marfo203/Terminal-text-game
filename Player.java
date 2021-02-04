@@ -78,16 +78,12 @@ public class Player {
 				if (tools.size() != 0) {
 					for (int i = 0; i < tools.size(); i++) {
 						System.out.println(i + 1 + ": " + tools.get(i).getItemName());
-						keyboard = new Scanner(System.in);
-						
+						keyboard = new Scanner(System.in);						
 					}
-					try {
-						
+					try {		
 						command = keyboard.nextInt();
 						this.item = tools.get(command-1);
 						this.item.useOn(this.location);
-						this.item.isUsed();
-						addStonks();
 					} catch (Exception e) {
 						System.out.println("Wrong input");
 					}
