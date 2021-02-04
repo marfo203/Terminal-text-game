@@ -1,6 +1,6 @@
 import java.util.HashMap;
 
-abstract class Location {
+public abstract class Location {
 
 	private String name;
 	private String longDesc;
@@ -10,6 +10,7 @@ abstract class Location {
 	private boolean hasBeen = false;
 	@SuppressWarnings("unused")
 	private boolean taken = false;
+	private boolean Darkness = false;
 	private HashMap<String, Location> paths = new HashMap<String, Location>();
 
 	public Location(String name, String longDesc, String shortDesc, Item item) {
@@ -57,10 +58,14 @@ abstract class Location {
 	}
 
 	public String describeYourself() {
-		if (this.hasBeen == false) {
-			return longDesc;
+		if (!getDarkness()) {
+			if (this.hasBeen == false) {
+				return longDesc;
+			} else {
+				return shortDesc;
+			}
 		} else {
-			return shortDesc;
+			return "Oh man how dark it is in here. Maybe I should try to use my bright future!?";
 		}
 	}
 
@@ -70,6 +75,9 @@ abstract class Location {
 	public void setWeather() {
 	}
 
+	public abstract boolean getDarkness();
+	public abstract void setDarkness();
+
 	public Item getItem() {
 
 		if (this.taken = false) {
@@ -78,7 +86,6 @@ abstract class Location {
 		} else {
 			return this.item;
 		}
-
 	}
 
 	public void itemTaken() {
@@ -89,4 +96,5 @@ abstract class Location {
 
 	public void locItems() {
 	}
+
 }

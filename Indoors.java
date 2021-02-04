@@ -1,8 +1,11 @@
 
 public class Indoors extends Location {
 
-	public Indoors(String name, String longDesc, String shortDesc, Item item) {
+	private boolean darkness;
+
+	public Indoors(String name, String longDesc, String shortDesc, Item item, boolean darkness) {
 		super(name, longDesc, shortDesc, item);
+		this.darkness = darkness;
 	}
 
 	@Override
@@ -30,4 +33,10 @@ public class Indoors extends Location {
 		}
 	}
 
+	public boolean getDarkness() {
+		return this.darkness;
+	}
+	public void setDarkness() {
+		this.darkness = false;
+	}
 }

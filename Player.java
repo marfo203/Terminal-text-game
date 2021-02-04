@@ -12,7 +12,6 @@ public class Player {
 	private ArrayList<Item> wearables = new ArrayList<Item>();
 	private ArrayList<Item> tools = new ArrayList<Item>();
 	private ArrayList<Item> briefcase = new ArrayList<Item>();
-	// briefcase contains blablabla
 
 	public Player(String name, Location location, int stonks, int influ) {
 		this.name = name;
