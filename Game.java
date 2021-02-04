@@ -6,6 +6,7 @@ public class Game {
 	private Player player;
 	private static ArrayList<Location> locations = new ArrayList<Location>();
 	private ArrayList<String> commands = new ArrayList<String>();
+	private static ArrayList<Item> items = new ArrayList<Item>();
 
 	public Game() {
 		// Skapar vår player, array för locations
@@ -16,8 +17,10 @@ public class Game {
 		Item vest = new WearableItem("Patagonia Vest", 50, 0);
 		Item turtleneck = new WearableItem("Steve Jobs Turtleneck", 200, 0);
 		Item passWord = new Tool("Elon Musk's Twitter Password", 500, 400);
-		Item phone = new Tool("The Iphone", 100, 0);
+		Item phone = new phone("The Iphone", 100, 50);
 		Item future = new Tool("Your bright future", 130, 0);
+		
+		
 
 		Location home = new Indoors("Home", "You are at home and feeling great...Longdescription...",
 				"Your are back at home", scrubDaddy);
@@ -46,6 +49,15 @@ public class Game {
 		locations.add(silVal);
 		locations.add(appleHQ);
 		locations.add(appleCryo);
+		
+		items.add(scrubDaddy);
+		items.add(future);
+		items.add(phone);
+		items.add(turtleneck);
+		items.add(vest);
+		items.add(passWord);
+		
+		
 
 		home.setNeighbor(wallStreet, null, null, null);
 		wallStreet.setNeighbor(silVal, home, null, bbc);
@@ -66,6 +78,9 @@ public class Game {
 	
 	public static Location getLocation(int i) {
 		return locations.get(i);
+	}
+	public static Item getItems (int i) {
+		return items.get(i);
 	}
 
 	public void getHelp(String cmd) {

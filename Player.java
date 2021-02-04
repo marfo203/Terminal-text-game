@@ -67,31 +67,40 @@ public class Player {
 					addInfluence();
 					System.out.println(describeYourself());
 				} catch (Exception e) {
-					System.out.println("Wrong input");
+					System.out.println("Wrong input. Use an integer.");
 				}
 			} else {
 				System.out.println("There is nothing in your briefcase to wear");
 			}
 		}
 
-			if (cmd.equalsIgnoreCase("use")) {
-				if (tools.size() != 0) {
-					for (int i = 0; i < tools.size(); i++) {
-						System.out.println(i + 1 + ": " + tools.get(i).getItemName());
-						keyboard = new Scanner(System.in);						
-					}
-					try {		
-						command = keyboard.nextInt();
-						this.item = tools.get(command-1);
-						this.item.useOn(this.location, this);
-					} catch (Exception e) {
-						System.out.println("Wrong input");
-					}
-				} else {
-					System.out.println("There is nothing in your briefcase to use");
+		if (cmd.equalsIgnoreCase("use")) {
+			if (tools.size() != 0) {
+				for (int i = 0; i < tools.size(); i++) {
+					System.out.println(i + 1 + ": " + tools.get(i).getItemName());
+					keyboard = new Scanner(System.in);
 				}
+				try {
+					command = keyboard.nextInt();
+					this.item = tools.get(command - 1);
+					this.item.useOn(this.location, this);
+				} catch (Exception e) {
+					System.out.println("Wrong input. Use an integer.");
+				}
+			} else {
+				System.out.println("There is nothing in your briefcase to use");
 			}
+
 		}
+		if (cmd.equalsIgnoreCase("tweet")) {
+			if (briefcase.contains(Game.getItems(2))) {
+				Game.getItems(2).useOn(location, this);
+		} else {
+			System.out.println("You don't have a phone yet.");
+
+		}
+		}
+	}
 
 	public void fillBriefcase() {
 		briefcase.add(location.getItem());
@@ -127,7 +136,7 @@ public class Player {
 	}
 
 	public void addInfluence() {
-			this.influ = this.influ + this.item.addInflu();
+		this.influ = this.influ + this.item.addInflu();
 	}
 
 	public void addStonks() {
@@ -145,7 +154,8 @@ public class Player {
 	}
 
 	public String describeYourself() {
-		return "Right now your Stonks are at " + (getStonks()) + "%. And your Influence is at " + getInfluence() + ".\n";
+		return "Right now your Stonks are at " + (getStonks()) + "%. And your Influence is at " + getInfluence()
+				+ ".\n";
 	}
 
 	public void getPaths(Location loc) {
@@ -162,6 +172,10 @@ public class Player {
 
 	public void wearItem(WearableItem wear) {
 		this.wearables.add(item);
+	}
+
+	public ArrayList<Item> getBriefcase() {
+		return briefcase;
 	}
 
 }
