@@ -17,10 +17,10 @@ public class Game {
 		Item turtleneck = new WearableItem("Steve Jobs Turtleneck", 200, 0);
 		Item passWord = new Tool("Elon Musk's Twitter Password", 500, 400);
 		Item phone = new Tool("The Iphone", 100, 0);
-		Item future = new Tool("Your bright future", 130, 0);
+		Item future = new Future("Your bright future", 130, 0);
 
 		Location home = new Indoors("Home", "You are at home and feeling great...Longdescription...",
-				"Your are back at home", scrubDaddy);
+				"Your are back at home", scrubDaddy, false);
 		Location wallStreet = new Outdoors("Wall Street",
 				"Wall Street. Home. At least it was before you moved out. Billions of dollars"
 						+ " move through these buildings every day.\nAll you need to do is to capture just a slice of it and you will be "
@@ -30,15 +30,15 @@ public class Game {
 				"Welcome to the BBC! The home of young and aspiring trustfund kids like yourself!\nCome here to relax, party or get insider information.\nEverything from... "
 						+ "Wait is that Mark \"Slobbins\" Cuban?\n"
 						+ "Slobbins: 'I am really looking for my next big investment. I heard the spongemarket is on fire right now!!'",
-				"Back at the BBC! Talk to one of the Billionare boys!", vest);
+				"Back at the BBC! Talk to one of the Billionare boys!", vest, false);
 		Location silVal = new Outdoors("Silicon Valley",
 				"Aaah.. Silicon Valley.. Or \" The V\" like the locals call it.\nThe home of Start Ups that change the world as we know it!\nYou can almost feel private information "
 						+ "of millions of users travel through the wind!\nAmazing place and amazing people! Where do you want to go next?",
 				"Back in The V!", passWord);
 		Location appleHQ = new Indoors("Apple Head Quarters", "AppleHQ...Longdescription...",
-				"Back at AppleHQ! Talk to Tim Cook.", phone);
+				"Back at AppleHQ! Talk to Tim Cook.", phone, false);
 		Location appleCryo = new Indoors("Apple Cryo Chambers", "Tim takes you down to the Cryo Chambers...",
-				"Down at the Cryo Chambers", turtleneck);
+				"Down at the Cryo Chambers", turtleneck, true);
 
 		locations.add(home);
 		locations.add(wallStreet);
@@ -96,7 +96,8 @@ public class Game {
 
 			player.describeYourself();
 			System.out.println(player.getLocation() +"\n");
-			player.getWeather();
+			player.getPosition().setWeather();
+			player.getPosition().getDarkness();
 			player.getPaths(player.getPosition());
 			player.counterLocation();
 			player.locItems();
