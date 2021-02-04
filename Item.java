@@ -21,6 +21,7 @@ public class Item {
 	}
 
 	public void doCommand(String cmd) {
+		
 //		System.out.println("This command is invalid");
 	}
 
