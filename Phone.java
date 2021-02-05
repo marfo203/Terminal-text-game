@@ -1,7 +1,7 @@
 
-public class phone extends Tool {
+public class Phone extends Tool {
 
-	public phone(String name, int influ, int stonks) {
+	public Phone(String name, int influ, int stonks) {
 		super(name, influ, stonks);
 	}
 		@Override

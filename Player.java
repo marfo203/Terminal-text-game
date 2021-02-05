@@ -39,19 +39,6 @@ public class Player {
 			}
 		}
 
-		if (cmd.equalsIgnoreCase("look")) {
-			this.location.locItems();
-		}
-
-		if (cmd.equalsIgnoreCase("north") || cmd.equalsIgnoreCase("south") || cmd.equalsIgnoreCase("east")
-				|| cmd.equalsIgnoreCase("west")) {
-			if (location.checkNeighbor(cmd) == true) {
-				this.location = this.location.moveTo(cmd);
-			} else {
-				System.out.println("Nothing to see here...");
-			}
-		}
-
 		if (cmd.equalsIgnoreCase("wear")) {
 			if (wearables.size() != 0) {
 				System.out.println("What do you want to wear?");
@@ -94,11 +81,19 @@ public class Player {
 		if (cmd.equalsIgnoreCase("tweet")) {
 			if (briefcase.contains(Game.getItems(2))) {
 				Game.getItems(2).useOn(location, this);
+			} else {
+				System.out.println("You don't have a phone yet.");
+
+			}
 		} else {
-			System.out.println("You don't have a phone yet.");
+			this.location.doCommand(cmd, this);
 
 		}
-		}
+	}
+
+	public void setLocation(Location location) {
+		this.location = location;
+
 	}
 
 	public void fillBriefcase() {

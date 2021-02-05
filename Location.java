@@ -31,6 +31,22 @@ public abstract class Location {
 		this.paths.put("west", west);
 
 	}
+	public void doCommand(String cmd, Player player) {
+		if (cmd.equalsIgnoreCase("north") || cmd.equalsIgnoreCase("south") || cmd.equalsIgnoreCase("east")
+				|| cmd.equalsIgnoreCase("west"))  {
+			if (checkNeighbor(cmd) == true) {
+				 player.setLocation( moveTo(cmd)); 
+				 locItems();
+			} else {
+				System.out.println("Nothing to see here...");
+			}
+		}else if (cmd.equalsIgnoreCase("look")) {
+			locItems();
+				
+			}
+			
+		}
+	
 
 	public boolean checkNeighbor(String cmd) {
 		if (this.paths.get(cmd) == null) {

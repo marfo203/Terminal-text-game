@@ -18,13 +18,12 @@ public class Game {
 		Item turtleneck = new WearableItem("Steve Jobs Turtleneck", 200, 0);
 		Item passWord = new Tool("Elon Musk's Twitter Password", 500, 400);
 
-		Item phone = new phone("The Iphone", 100, 50);
-		Item future = new Tool("Your bright future", 130, 0);
+		Item phone = new Phone("The Iphone", 100, 50);
+		Item future = new Future("Your bright future", 130, 0);
 		
 		
 
-		Item phone = new Tool("The Iphone", 100, 0);
-		Item future = new Future("Your bright future", 130, 0);
+		
 
 
 		Location home = new Indoors("Home", "You are at home and feeling great...Longdescription...",
@@ -76,7 +75,7 @@ public class Game {
 		commands.add("look - See items in current room or area");
 		commands.add("items - See the current items in your briefcase");
 		commands.add("take - Take item in current room or area");
-//		commands.add("tweet - Use your phone and Twitter Password to tweet");
+		commands.add("tweet - Use your phone and Twitter Password to tweet");
 		commands.add("use - Use the tools in your briefcase");
 		commands.add("wear - Wear the wearable items in your briefcase");
 	}
@@ -109,6 +108,7 @@ public class Game {
 		System.out.println(
 				"Your goal is to gain Stonks and influence. You can get a higher or lower value depending on the choises you make. \n"
 						+ "You can see the value of your Stonks and Influence by typing \"stats\" at any time!\n");
+		player.locItems();
 
 		while (true) {
 
@@ -120,7 +120,7 @@ public class Game {
 			player.getPosition().getDarkness();
 			player.getPaths(player.getPosition());
 			player.counterLocation();
-			player.locItems();
+			//player.locItems();
 			System.out.println("\nWhat do you do? Go!");
 			command = keyboard.nextLine();
 			if (command.equalsIgnoreCase("help")) {
@@ -130,6 +130,7 @@ public class Game {
 					System.out.println(player.describeYourself());
 				} else {
 					player.doCommand(command);
+					
 				}
 			}
 		}
